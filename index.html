@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            background-color: #70c1b3;
+            color: white;
+            font-family: 'Edwardian Script ITC', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 3rem;
+            font-weight: bold;
+            color: black;
+            background-color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #result {
+            font-size: 2rem;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        button {
+            font-size: 1.2rem;
+            color: white;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5dade2;
+        }
+
+        #refresh {
+            background-color: lightpink;
+        }
+
+        #refresh:hover {
+            background-color: #f78fb3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Click the buttons below to convert</h2>
+    <div class="amount">100</div>
+    <p>pesos to other currencies</p>
+    <div id="result"></div>
+    <button onclick="convertToEuro()">Euro</button>
+    <button onclick="convertToPound()">Pound</button>
+    <button id="refresh" onclick="refreshPage()">Refresh</button>
+
+    <script>
+        const pesoAmount = 100;
+
+        function convertToEuro() {
+            const euroRate = 0.016
+            const result = (pesoAmount * euroRate).toFixed(2);
+            document.getElementById('result').innerHTML = result + ' €';
+        }
+
+        function convertToPound() {
+            const poundRate = 0.014
+            const result = (pesoAmount * poundRate).toFixed(2);
+            document.getElementById('result').innerHTML = result + ' £';
+        }
+
+        function refreshPage() {
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
+
